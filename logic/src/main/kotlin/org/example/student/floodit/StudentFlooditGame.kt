@@ -124,7 +124,7 @@ class StudentFlooditGame(/*get() = ("Remove this and create an actual maxTurns p
     private fun floodFill(x:Int, y:Int, oldColour:Int, newColour:Int) {
         /*if old colour does not match new colour then exits loop otherwise will then set
         current node to new colour value*/
-        if (get(x,y) != oldColour){
+        if (get(x,y) != newColour){
             grid[x,y] = newColour
             //recursively calls this function if any neighbor is same colour as one played
             if (x > 0 && x < (width-1)){
