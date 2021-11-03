@@ -196,24 +196,15 @@ class StudentFlooditGame(/*get() = ("Remove this and create an actual maxTurns p
         @JvmStatic
         fun generateRandomGrid(width: Int, height: Int, colourCount: Int, random: Random):
                 IntMatrix {
-            /*  Create a matrix with the given width and height and fill it with colours.
-                To make it work nicer, you want to have some probability > (1/colourCount) that the
-                colour is the same as a neighbouring cell. Otherwise there are too few clusters.
-                ps. You want to use the fact that [MutableIntMatrix] extends [IntMatrix]
-             */
-
+            /*  Creates a matrix with the given width and height and fill it with colours. */
             var row: Int = height
             var col: Int = width
             //Makes sure Width and Height ar positive integers otherwise will default to size 12
-            if (width < 0)
-                col = 12
-            if (height < 0)
-                row = 12
-
+            if (width < 0) col = 12
+            if (height < 0) row = 12
             val tempMatrix = MutableIntMatrix(width, height)
             /*iterates through the 2d array for height and width provided assigning a random number
             between 0 and "colourCount" provided as it goes*/
-
 
             for(x in 0 until col) {
                 for (y in 0 until row) {
