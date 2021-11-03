@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GameActivity">
+
+  <TextView
+      android:id="@+id/roundLabel"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/round"
+      android:textAppearance="@style/TextAppearance.AppCompat.Large"
+      app:layout_constraintBottom_toTopOf="@+id/custView"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.316"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/statusText"
+      app:layout_constraintVertical_bias="0.503" />
+
+  <TextView
+      android:id="@+id/statusText"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/floodit_game"
+      android:textAppearance="@style/TextAppearance.AppCompat.Large"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <uk.ac.bournemouth.ap.floodit.app.CustView
+      android:id="@+id/custView"
+      android:layout_width="393dp"
+      android:layout_height="546dp"
+      app:layout_constraintBottom_toTopOf="@+id/fullWindow"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.589"
+      app:layout_constraintStart_toStartOf="parent" />
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/fullWindow"
+      android:layout_width="407dp"
+      android:layout_height="78dp"
+      android:gravity="top"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent">
+
+    <Button
+        android:id="@+id/button_colour0"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:tag="0"
+        app:backgroundTint="#0000FF"
+        app:layout_constraintEnd_toStartOf="@+id/button_colour1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="DuplicateSpeakableTextCheck,SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/button_colour1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:tag="1"
+        android:textColor="#000000"
+        app:backgroundTint="#FF0000"
+        app:layout_constraintEnd_toStartOf="@+id/button_colour2"
+        app:layout_constraintStart_toEndOf="@+id/button_colour0"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/button_colour2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:tag="2"
+        android:textColor="#616161"
+        app:backgroundTint="#00FF00"
+        app:layout_constraintEnd_toStartOf="@+id/button_colour3"
+        app:layout_constraintStart_toEndOf="@+id/button_colour1"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/button_colour3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:tag="3"
+        android:textColor="#000000"
+        app:backgroundTint="#888787"
+        app:layout_constraintEnd_toStartOf="@+id/button_colour4"
+        app:layout_constraintStart_toEndOf="@+id/button_colour2"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/button_colour4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:tag="4"
+        android:textColor="#212121"
+        app:backgroundTint="#FF00FF"
+        app:layout_constraintEnd_toStartOf="@+id/button_colour5"
+        app:layout_constraintStart_toEndOf="@+id/button_colour3"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
+
+
+    <Button
+        android:id="@+id/button_colour5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:tag="5"
+        android:textColor="#5C6BC0"
+        app:backgroundTint="#FFFF00"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_colour4"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+  <TextView
+      android:id="@+id/roundCounter"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="0"
+      android:textAppearance="@style/TextAppearance.AppCompat.Large"
+      app:layout_constraintBottom_toTopOf="@+id/custView"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toEndOf="@+id/roundLabel"
+      app:layout_constraintTop_toBottomOf="@+id/statusText" />
+
+  <Button
+      android:id="@+id/resetButton"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/reset"
+      app:layout_constraintBottom_toTopOf="@+id/custView"
+      app:layout_constraintEnd_toStartOf="@+id/roundLabel"
+      app:layout_constraintHorizontal_bias="0.551"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/statusText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

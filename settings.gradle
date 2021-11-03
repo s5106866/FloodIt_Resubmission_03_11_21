@@ -1,0 +1,5 @@
+rootProject.name = "FloodIt"
+include ':app'
+include ':lib'
+include ':logic'
+include ':testlib'
