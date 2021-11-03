@@ -72,6 +72,7 @@ class StudentFlooditGame(/*get() = ("Remove this and create an actual maxTurns p
         maxTurns = maxRounds
     )
 
+
     override fun playColour(clr: Int) {
         //Update the round counter
         round += 1
@@ -96,19 +97,19 @@ class StudentFlooditGame(/*get() = ("Remove this and create an actual maxTurns p
                 if (get(x,y) != sourceColour) isWon=false
 
         //If "isWon" variable is not changed then game is won
-        when {isWon -> { notifyWin(round)}
+        when {isWon -> { notifyWin(round)
+            state=State.WON}
             //rounds are equal or less than max turns then game is lost
             round > maxTurns -> {
                 //("notify listeners")
                 this.notifyLoss(round)
+                state=State.LOST
                 return
             }
             else -> {
-                this.notifyMove(round)
                 gameOverListeners
             }
         }
-        return
 
         /*
           Please note that the most straightforward way of implementing flood fill is with a
@@ -123,15 +124,18 @@ class StudentFlooditGame(/*get() = ("Remove this and create an actual maxTurns p
     private fun floodFill(x:Int, y:Int, oldColour:Int, newColour:Int) {
         /*if old colour does not match new colour then exits loop otherwise will then set
         current node to new colour value*/
-        if (get(x,y) != oldColour){
-            return}
-        grid[x,y] = newColour
-
-        //recursively calls this function if any neighbor is same colour as one played
-        floodFill(x + 1, y, oldColour, newColour) // Floods right cell
-        floodFill(x - 1, y, oldColour, newColour) // Floods left cell
-        floodFill(x, y + 1, oldColour, newColour) // Floods lower cell
-        floodFill(x, y - 1, oldColour, newColour) // Floods upper cell
+        if (get(x,y) != newColour){
+            grid[x,y] = newColour
+            //recursively calls this function if any neighbor is same colour as one played
+            if (x > 0 && x < (width-1)){
+                floodFill(x + 1, y, oldColour, newColour) }// Floods right cell
+            if (x > 0 && x < (width+1)){
+                floodFill(x - 1, y, oldColour, newColour)} // Floods left cell
+            if (y > 0 && y<(height-1)){
+                floodFill(x, y + 1, oldColour, newColour) }// Floods lower cell
+            if (y > 0 && y<(height+1)){
+                floodFill(x, y - 1, oldColour, newColour) }// Floods upper cell
+            }
     }
 
     override operator fun get(x: Int, y: Int): Int {

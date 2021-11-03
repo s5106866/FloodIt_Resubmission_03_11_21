@@ -18,12 +18,11 @@ class FlooditActivity : AppCompatActivity() {
     private lateinit var button4: Button
     private lateinit var button5: Button
     private lateinit var buttonReset: Button
+    var game = StudentFlooditGame(12,12,6,25)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_floodit)
-        StudentFlooditGame(12,12,6,25)
-        var game = StudentFlooditGame
 
         counterText = findViewById(R.id.roundCounter)
         button0 = findViewById(R.id.button_colour0)
@@ -56,10 +55,14 @@ class FlooditActivity : AppCompatActivity() {
     }
     //adds 1 to round counter and plays colour selected
     private fun buttonPressed(clr: Int) {
+        game.playColour(clr)
+        roundCounter= game.round
         roundCounter += 1
         counterText.text = roundCounter.toString()
         if (roundCounter == 25){
             Toast.makeText(this, "Game Over - Maximum rounds Reached",
                 Toast.LENGTH_LONG).show()        }
+
+
     }
 }

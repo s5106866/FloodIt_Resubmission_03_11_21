@@ -7,6 +7,7 @@ import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
 import org.example.student.floodit.StudentFlooditGame
+import uk.ac.bournemouth.ap.floodit.logic.FlooditGame
 
 class CustView: View {
     constructor(context: Context?) : super(context)
@@ -24,6 +25,9 @@ class CustView: View {
 
     private val colCount:Int = game.width
     private val rowCount:Int = game.height
+    private val gamePlayListener = FlooditGame.GamePlayListener{
+        game,round -> invalidate()
+    }
 
     private var mGridPaint: Paint = Paint().apply {
         style = Paint.Style.FILL
@@ -72,7 +76,9 @@ class CustView: View {
         color = Color.YELLOW
     }
 
-
+    init{
+        game.addGamePlayListener(gamePlayListener)
+    }
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         val viewWidth: Float = width.toFloat()
